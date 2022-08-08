@@ -4,15 +4,12 @@ resource "azurerm_linux_virtual_machine" "VM" {
   location            = azurerm_resource_group.ST-INFRA.location
   size                = "Standard_F2"
   admin_username      = "sttarabay"
-  network_interface_ids = [
-    azurerm_network_interface.ST-INTERFACE.id
-  ]
+  network_interface_ids = [azurerm_network_interface.ST-INTERFACE.id]
   admin_ssh_key {
     username = "sttarabay"
-    public_key = "tls_private_key.ST-SSH.public_key_openssh"
+    public_key = tls_private_key.ST-SEGURO.public_key_openssh
   }
   os_disk {
-    name = "MyDISC"
     caching = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
@@ -23,6 +20,6 @@ resource "azurerm_linux_virtual_machine" "VM" {
     version = "latest"
   }
   depends_on = [
-    local_file.ST_SSH
+    local_file.ST_SEGURO
   ]
 }

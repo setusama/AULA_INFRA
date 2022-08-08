@@ -7,7 +7,7 @@ resource "null_resource" "install-nginx" {
     type = "ssh"
     host = data.azurerm_public_ip.data-publicip.ip_address
     user = "sttarabay"
-    private_key = tls_private_key.ST-SSH.private_key_pem
+    private_key = tls_private_key.ST-SEGURO.private_key_pem
   }
 
   provisioner "remote-exec" {
