@@ -4,9 +4,9 @@ resource "null_resource" "install-nginx" {
   }
 
   connection {
-    type = "ssh"
-    host = data.azurerm_public_ip.data-publicip.ip_address
-    user = "sttarabay"
+    type        = "ssh"
+    host        = data.azurerm_public_ip.data-publicip.ip_address
+    user        = "sttarabay"
     private_key = tls_private_key.ST-SEGURO.private_key_pem
   }
 

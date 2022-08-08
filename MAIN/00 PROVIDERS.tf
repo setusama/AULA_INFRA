@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-        source = "hashicorp/azurerm"
+        source  = "hashicorp/azurerm"
         version = ">= 3.0.1"
     }
   }
@@ -9,11 +9,10 @@ terraform {
 
 provider "azurerm" {
     skip_provider_registration = true
-    features {
-    }
+    features {}
 }
 
 resource "azurerm_resource_group" "ST-INFRA" {
-  name     = "ST-INFRA"
-  location = "eastus"
+  name      = "ST-INFRA"
+  location  = "eastus"
 }
